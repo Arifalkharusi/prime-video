@@ -1,0 +1,17 @@
+.loading {
+  width: 320px;
+  height: 180px;
+  margin-right: 5px;
+  background: grey;
+  animation: loading 0.5s linear infinite alternate;
+}
+
+@keyframes loading {
+  0% {
+    background: rgb(141, 141, 141);
+  }
+
+  100% {
+    background: rgb(168, 168, 168);
+  }
+}

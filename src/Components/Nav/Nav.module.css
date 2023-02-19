@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  color: rgba(242, 244, 246, 0.7);
+  font-size: 18px;
+  background: #1b2530;
+}
+.left h1 {
+  font-size: 22px;
+  color: white;
+  cursor: pointer;
+}
+.left {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  gap: 15px;
+}
+.left > div,
+.right {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  transition: all 0.25s;
+}
+.left > div:hover,
+.right:hover {
+  color: white;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.container i {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
