@@ -10,7 +10,7 @@ const Movie = ({ movie }) => {
       <div className={style.movie}>
         <div className={style.prime}></div>
         <div className={style.photo}>
-          <img src={`${imgPath}${movie.poster_path}`} />
+          <img src={`${imgPath}${movie.poster_path}`} alt="" />
         </div>
         <Discription movie={movie} />
       </div>
