@@ -25,7 +25,7 @@ const Slider = ({ page }) => {
     setTimeout(() => {
       setLoading(false);
     }, 2000);
-  }, []);
+  });
 
   const handleClick = (direction) => {
     setIsMoved(true);
