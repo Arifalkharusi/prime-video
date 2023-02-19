@@ -42,7 +42,7 @@ const Slider = ({ page }) => {
   return (
     <div>
       <div className={style.heading}>
-        <img src={logo} />
+        <img src={logo} alt="" />
         <div className={style.title}>Originals and Exclusives</div>
         <div className={style.seemore}>see more</div>
       </div>
