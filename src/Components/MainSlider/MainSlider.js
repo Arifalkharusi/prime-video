@@ -28,16 +28,16 @@ const MainSlider = (props) => {
   return (
     <div className={style.container}>
       <Slider {...settings}>
-        <img src={thumb1} alt="" />
-        <img src={thumb2} alt="" />
-        <img src={thumb3} alt="" />
-        <img src={thumb4} alt="" />
-        <img src={thumb5} alt="" />
-        <img src={thumb6} alt="" />
-        <img src={thumb7} alt="" />
-        <img src={thumb8} alt="" />
-        <img src={thumb9} alt="" />
-        <img src={thumb10} alt="" />
+        <img src={thumb1} alt="thumb1" />
+        <img src={thumb2} alt="thumb2" />
+        <img src={thumb3} alt="thumb3" />
+        <img src={thumb4} alt="thumb4" />
+        <img src={thumb5} alt="thumb5" />
+        <img src={thumb6} alt="thumb6" />
+        <img src={thumb7} alt="thumb7" />
+        <img src={thumb8} alt="thumb8" />
+        <img src={thumb9} alt="thumb9" />
+        <img src={thumb10} alt="thumb10" />
       </Slider>
     </div>
   );
