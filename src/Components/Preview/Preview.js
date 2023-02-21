@@ -19,6 +19,7 @@ const Preview = (props) => {
           <img
             className={style.backdrop}
             src={`${imgPath}${data.backdrop_path}`}
+            alt=""
           />
           <div className={style.discription}>
             <div className={style.content}>
@@ -69,7 +70,7 @@ const Preview = (props) => {
         </div>
         <div className={style.watch}>
           <div className={style.prime}>
-            <img src={logo} />
+            <img src={logo} alt="" />
             <div>Watch for £0.00 with Prime</div>
           </div>
           <div className={style.play}>

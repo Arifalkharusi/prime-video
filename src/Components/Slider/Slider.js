@@ -30,7 +30,7 @@ const Slider = ({ page }) => {
     return () => {
       done = true;
     };
-  }, []);
+  }, [page]);
 
   console.log(data);
 
