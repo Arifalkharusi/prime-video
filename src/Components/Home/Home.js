@@ -8,7 +8,7 @@ const Home = (props) => {
     <div className={style.container}>
       <MainSlider />
       <div className={style.content}>
-        {[1, 2].map((x) => (
+        {[1, 2, 3, 4, 5].map((x) => (
           <Slider page={x} />
         ))}
       </div>

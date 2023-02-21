@@ -63,7 +63,7 @@ const Slider = ({ page }) => {
         </button>
         <div ref={listRef}>
           {data.map((x, i) =>
-            data ? (
+            data.length > 0 ? (
               <Link to="/preview">
                 <Movie movie={x} key={i} />
               </Link>
