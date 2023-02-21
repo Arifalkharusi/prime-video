@@ -30,14 +30,92 @@
   box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.28);
   border-radius: 0;
 }
+
+.movie:hover .botsection {
+  background-image: linear-gradient(
+    180deg,
+    rgba(27, 41, 53, 0),
+    rgb(18, 30, 41) 20%
+  );
+}
 .movie .photo {
   width: 320px;
   height: 165px;
 }
 .movie img {
   width: 100%;
-  height: 180px;
+  height: 300px;
   object-fit: cover;
   object-position: center;
   cursor: pointer;
+}
+
+.botwrapper {
+  position: relative;
+  height: 150px;
+}
+
+.botsection {
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 30px;
+  gap: 5px;
+  position: absolute;
+  top: -40px;
+  /* background: rgb(27, 41, 53); */
+  background-image: linear-gradient(
+    180deg,
+    rgba(27, 41, 53, 0) 30%,
+    rgb(18, 30, 41) 20%
+  );
+}
+
+.watch {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.play {
+  display: flex;
+  gap: 20px;
+}
+
+.watch > div {
+  font-weight: bold;
+  color: rgb(121, 184, 243);
+  cursor: pointer;
+  transition: color 0.15s;
+  font-size: 14px;
+}
+.watch > div:hover {
+  color: rgb(170, 206, 240);
+  transition: color 0.15s;
+}
+.play i {
+  cursor: pointer;
+  font-size: 20px;
+  color: white;
+}
+.info {
+  height: 70px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+.info > div {
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 14px;
+}
+.info p {
+  font-size: 12px;
+  line-height: 1.4;
+}
+.rating {
+  display: flex;
+  gap: 10px;
+  font-size: 12px;
+  margin-top: 10px;
 }

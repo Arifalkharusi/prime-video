@@ -1,0 +1,25 @@
+.outer {
+  position: relative;
+  display: inline-block;
+}
+
+.inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 0;
+}
+
+.outer::before {
+  content: "\f005 \f005 \f005 \f005 \f005 ";
+  font-family: "Font Awesome 5 Free";
+  color: rgb(177, 115, 1);
+  /* font-weight: bold; */
+}
+.inner::before {
+  content: "\f005 \f005 \f005 \f005 \f005 ";
+  font-family: "Font Awesome 5 Free";
+  color: orange;
+  font-weight: bold;
+}

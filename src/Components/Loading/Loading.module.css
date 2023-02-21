@@ -2,16 +2,16 @@
   width: 320px;
   height: 180px;
   margin-right: 5px;
-  background: grey;
-  animation: loading 0.5s linear infinite alternate;
+  background: rgb(18, 30, 41);
+  animation: loading 0.8s linear infinite alternate;
 }
 
 @keyframes loading {
   0% {
-    background: rgb(141, 141, 141);
+    background: rgb(18, 30, 41);
   }
 
   100% {
-    background: rgb(168, 168, 168);
+    background: rgb(29, 48, 66);
   }
 }

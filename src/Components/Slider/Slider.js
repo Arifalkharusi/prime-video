@@ -4,6 +4,8 @@ import Movie from "../Movie/Movie";
 import Loading from "../Loading/Loading";
 import logo from ".././../img/prime-logo.png";
 
+import { Link } from "react-router-dom";
+
 const BASE_URL = "https://api.themoviedb.org/3/";
 const API_KEY = "api_key=abc2763a0c32e1349d709408b65f5222";
 const POPULAR_MOVIES = `${BASE_URL}discover/movie?sort_by=popularity.desc&${API_KEY}`;
@@ -13,7 +15,6 @@ const Slider = ({ page }) => {
   const [slideNum, setSlideNum] = useState(0);
   const [isMoved, setIsMoved] = useState(false);
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   const fetchMovies = async (url) => {
     const res = await fetch(url);
@@ -21,11 +22,17 @@ const Slider = ({ page }) => {
     setData(data.results);
   };
   useEffect(() => {
-    fetchMovies(`${POPULAR_MOVIES}&page=${page}`);
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-  });
+    let done = false;
+    if (!done) {
+      fetchMovies(`${POPULAR_MOVIES}&page=${page}`);
+      console.log("hello");
+    }
+    return () => {
+      done = true;
+    };
+  }, []);
+
+  console.log(data);
 
   const handleClick = (direction) => {
     setIsMoved(true);
@@ -55,7 +62,15 @@ const Slider = ({ page }) => {
           <i className="fa-solid fa-chevron-left"></i>
         </button>
         <div ref={listRef}>
-          {data.map((x) => (!loading ? <Movie movie={x} /> : <Loading />))}
+          {data.map((x, i) =>
+            data ? (
+              <Link to="/preview">
+                <Movie movie={x} key={i} />
+              </Link>
+            ) : (
+              <Loading key={i} />
+            )
+          )}
         </div>
         <button className={style.right} onClick={() => handleClick("right")}>
           <i className="fa-solid fa-chevron-right"></i>

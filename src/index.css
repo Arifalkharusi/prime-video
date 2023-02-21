@@ -29,3 +29,7 @@ code {
 .slick-dots {
   bottom: 10px;
 }
+
+.app {
+  overflow-x: hidden;
+}

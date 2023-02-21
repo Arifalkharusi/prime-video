@@ -1,0 +1,160 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.wrapper {
+  color: white;
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  overflow-x: hidden;
+}
+.container {
+  overflow: hidden;
+  position: relative;
+  max-height: 500px;
+}
+
+.container .backdrop {
+  width: 100%;
+}
+.discription {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgb(15, 23, 30) 35%,
+    rgba(15, 23, 30, 0.096)
+  );
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  padding: 40px;
+}
+
+.discription h1 {
+  font-size: 50px;
+}
+.info {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+  font-size: 18px;
+  color: rgb(129, 151, 164);
+}
+.info .hd {
+  width: 250px;
+}
+.info .imdb {
+  width: 38px;
+}
+
+table {
+  color: rgb(129, 151, 164);
+}
+
+span {
+  color: rgb(121, 184, 243);
+  cursor: pointer;
+  transition: all 0.25s;
+}
+span:hover {
+  color: rgb(154, 200, 243);
+  transition: all 0.25s;
+}
+
+.watch {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px;
+  align-self: flex-start;
+  width: 100%;
+}
+
+.prime {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.prime div {
+  font-size: 18px;
+}
+.play {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.play > div {
+  padding: 15px;
+  background: rgb(255, 167, 36);
+  border-radius: 4px;
+  color: black;
+  cursor: pointer;
+}
+
+.play > div p {
+  font-size: 17px;
+}
+.play > div:hover {
+  background: rgb(253, 178, 64);
+}
+.play i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  background: rgb(66, 82, 101);
+  font-size: 25px;
+  cursor: pointer;
+}
+.play i:hover {
+  background: rgb(86, 107, 133);
+}
+.terms {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.terms p {
+  color: rgb(129, 151, 164);
+}
+
+.terms .icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.icons > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+.icons > div i {
+  color: rgb(129, 151, 164);
+  transition: all 0.25s;
+}
+.icons > div:hover i {
+  color: white;
+  transition: all 0.25s;
+}
+.slider {
+  width: 100%;
+  margin-bottom: 500px;
+}

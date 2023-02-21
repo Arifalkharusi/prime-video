@@ -8,7 +8,7 @@ import thumb5 from ".././../img/thumbnail5.png";
 import thumb6 from ".././../img/thumbnail6.png";
 import thumb7 from ".././../img/thumbnail7.png";
 import thumb8 from ".././../img/thumbnail8.png";
-import thumb9 from ".././../img/thumbnail8.png";
+import thumb9 from ".././../img/thumbnail9.png";
 import thumb10 from ".././../img/thumbnail10.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
