@@ -10,17 +10,27 @@ const BASE_URL = "https://api.themoviedb.org/3/";
 const API_KEY = "api_key=abc2763a0c32e1349d709408b65f5222";
 const POPULAR_MOVIES = `${BASE_URL}discover/movie?sort_by=popularity.desc&${API_KEY}`;
 
-const Slider = ({ page }) => {
+const Slider = ({ page, index }) => {
   const listRef = useRef();
   const [slideNum, setSlideNum] = useState(0);
   const [isMoved, setIsMoved] = useState(false);
   const [data, setData] = useState([]);
+
+  const titles = [
+    "Originals and Exclusives",
+    "Titles expiring in the next 30 days",
+    "Historical TV shows",
+    "Quirky comedy TV",
+    "Recently ended",
+    "IMDb top-rated TV series",
+  ];
 
   const fetchMovies = async (url) => {
     const res = await fetch(url);
     const data = await res.json();
     setData(data.results);
   };
+
   useEffect(() => {
     let done = false;
     if (!done) {
@@ -50,7 +60,7 @@ const Slider = ({ page }) => {
     <div>
       <div className={style.heading}>
         <img src={logo} alt="" />
-        <div className={style.title}>Originals and Exclusives</div>
+        <div className={style.title}>{titles[index]}</div>
         <div className={style.seemore}>see more</div>
       </div>
       <div className={style.silder} style={{ zIndex: 100 - page }}>

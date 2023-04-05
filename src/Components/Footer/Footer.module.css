@@ -1,0 +1,38 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  background: rgb(35, 47, 62);
+}
+.backbtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgb(55, 71, 90);
+  color: white;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.backbtn:hover {
+  filter: brightness(1.2);
+}
+.links {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 50px;
+  padding: 50px;
+  color: white;
+  height: 500px;
+}
+.links > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.links > div > h2 {
+  font-size: 20px;
+  font-weight: bold;
+}

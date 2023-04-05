@@ -7,11 +7,6 @@ import { movieHandler } from "../../store/movies";
 const Movie = ({ movie }) => {
   const imgPath = "https://image.tmdb.org/t/p/original";
 
-  const year = (movie) => {
-    const date = movie.release_date.split("-");
-    return date[0];
-  };
-
   const dispatch = useDispatch();
 
   return (
@@ -39,7 +34,7 @@ const Movie = ({ movie }) => {
             </div>
             <div className={style.rating}>
               <Rating rate={movie.vote_average} />
-              <div>{year(movie)}</div>
+              <div>{movie.release_date?.split("-")[0]}</div>
             </div>
           </div>
         </div>

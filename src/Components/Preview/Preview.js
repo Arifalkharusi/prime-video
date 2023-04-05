@@ -104,10 +104,10 @@ const Preview = (props) => {
         </div>
         <div>
           <div className={style.slider}>
-            <Slider page={40} />
-            <Slider page={50} />
-            <Slider page={60} />
-            <Slider page={70} />
+            <Slider page={40} index={1} />
+            <Slider page={50} index={2} />
+            <Slider page={60} index={3} />
+            <Slider page={70} index={4} />
           </div>
         </div>
       </div>
