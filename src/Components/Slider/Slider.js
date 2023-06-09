@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "../Slider/Slider.module.css";
 import Movie from "../Movie/Movie";
 import Loading from "../Loading/Loading";
@@ -11,14 +11,13 @@ const API_KEY = "api_key=abc2763a0c32e1349d709408b65f5222";
 const POPULAR_MOVIES = `${BASE_URL}discover/movie?sort_by=popularity.desc&${API_KEY}`;
 
 const Slider = ({ page, index }) => {
-  const listRef = useRef();
   const [slideNum, setSlideNum] = useState(0);
   const [isMoved, setIsMoved] = useState(false);
   const [data, setData] = useState([]);
 
   const titles = [
     "Originals and Exclusives",
-    "Titles expiring in the next 30 days",
+    "Titles expiring in 30 days",
     "Historical TV shows",
     "Quirky comedy TV",
     "Recently ended",
@@ -42,18 +41,11 @@ const Slider = ({ page, index }) => {
     };
   }, [page]);
 
-  console.log(data);
-
   const handleClick = (direction) => {
     setIsMoved(true);
-    let distance = listRef.current.getBoundingClientRect().x - 55;
-    if (direction === "left" && slideNum > 0) {
-      setSlideNum(slideNum - 1);
-      listRef.current.style.transform = `translateX(${325 + distance}px)`;
-    } else if (direction === "right" && slideNum < data.length) {
-      setSlideNum(slideNum + 1);
-      listRef.current.style.transform = `translateX(${-325 + distance}px)`;
-    }
+
+    if (direction === "left" && slideNum < 0) setSlideNum(slideNum + 1);
+    if (direction === "right" && slideNum >= -16) setSlideNum(slideNum - 1);
   };
 
   return (
@@ -71,7 +63,7 @@ const Slider = ({ page, index }) => {
         >
           <i className="fa-solid fa-chevron-left"></i>
         </button>
-        <div ref={listRef}>
+        <div style={{ transform: `translateX(${slideNum * 325}px)` }}>
           {data.map((x, i) =>
             data.length > 0 ? (
               <Link to="/preview">

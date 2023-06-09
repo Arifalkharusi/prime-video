@@ -76,7 +76,7 @@ const Preview = (props) => {
           <div className={style.play}>
             <div>
               <p>Watch with Prime</p>
-              <p>Start your 30-day free trial</p>
+              <p>Start 30-day free trial</p>
             </div>
             <i className="fa-solid fa-play"></i>
             <i class="fa-solid fa-plus"></i>

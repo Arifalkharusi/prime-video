@@ -111,6 +111,7 @@ span:hover {
 .play > div:hover {
   background: rgb(253, 178, 64);
 }
+
 .play i {
   display: flex;
   align-items: center;
@@ -125,6 +126,7 @@ span:hover {
 .play i:hover {
   background: rgb(86, 107, 133);
 }
+
 .terms {
   display: flex;
   align-items: center;
@@ -157,4 +159,44 @@ span:hover {
 .slider {
   width: 100%;
   margin-bottom: 200px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-height: none;
+  }
+  .content p,
+  table,
+  .info,
+  .prime div,
+  .play > div p,
+  .icons > div {
+    font-size: 14px;
+  }
+  .discription {
+    position: relative;
+  }
+
+  .info .hd {
+    display: none;
+  }
+  .discription h1 {
+    font-size: 25px;
+  }
+  .info .imdb {
+    width: 28px;
+  }
+  .prime img {
+    width: 50px;
+  }
+  .play i {
+    height: 40px;
+    width: 40px;
+    font-size: 20px;
+  }
+  .terms {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
 }

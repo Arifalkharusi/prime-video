@@ -67,3 +67,15 @@
   color: rgb(148, 197, 243);
   transition: all 0.25s;
 }
+
+@media (max-width: 768px) {
+  .heading img {
+    width: 50px;
+  }
+  .heading .title {
+    font-size: 16px;
+  }
+  .heading .seemore {
+    font-size: 12px;
+  }
+}
