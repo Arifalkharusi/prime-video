@@ -8,7 +8,8 @@ import { Link } from "react-router-dom";
 
 const BASE_URL = "https://api.themoviedb.org/3/";
 const API_KEY = "api_key=abc2763a0c32e1349d709408b65f5222";
-const POPULAR_MOVIES = `${BASE_URL}discover/movie?sort_by=popularity.desc&${API_KEY}`;
+// const POPULAR_MOVIES = `${BASE_URL}discover/movie?sort_by=popularity.desc&${API_KEY}`;
+const POPULAR_MOVIES = `${BASE_URL}trending/all/day?sort_by=popularity.desc&${API_KEY}`;
 
 const Slider = ({ page, index }) => {
   const [slideNum, setSlideNum] = useState(0);
@@ -34,7 +35,6 @@ const Slider = ({ page, index }) => {
     let done = false;
     if (!done) {
       fetchMovies(`${POPULAR_MOVIES}&page=${page}`);
-      console.log("hello");
     }
     return () => {
       done = true;
@@ -49,7 +49,7 @@ const Slider = ({ page, index }) => {
   };
 
   return (
-    <div>
+    <div className={style.container}>
       <div className={style.heading}>
         <img src={logo} alt="" />
         <div className={style.title}>{titles[index]}</div>

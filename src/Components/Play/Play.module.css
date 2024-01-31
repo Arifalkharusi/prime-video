@@ -1,0 +1,55 @@
+.season {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.video {
+  position: relative;
+  width: 100%;
+  height: 0px;
+  padding-bottom: 50.25%;
+}
+
+iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.title {
+  font-size: 22px;
+  color: white;
+  padding: 20px;
+}
+
+.current_ep {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: rgb(129, 151, 164);
+  height: 40px;
+  width: 40px;
+  flex-wrap: wrap;
+}
+.selected_ep {
+  background-color: rgb(255, 167, 36) !important;
+}
+select {
+  width: 100px;
+  height: 30px;
+  outline: none;
+  background-color: rgb(129, 151, 164);
+  border: 2px solid grey;
+}
+.info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import style from "./Preview.module.css";
 import Rating from "../Rating/Rating";
 import hd from ".././../img/hd.png";
@@ -6,11 +6,39 @@ import imdb from ".././../img/imdb.png";
 import logo from ".././../img/prime-logo.png";
 import Slider from "../Slider/Slider";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Preview = (props) => {
   const imgPath = "https://image.tmdb.org/t/p/original";
 
+  const [added, setAdded] = useState(false);
+
   const data = useSelector((state) => state.movie.data);
+
+  const checkLsit = useCallback(() => {
+    const fav = JSON.parse(localStorage.getItem("fav"));
+
+    fav.forEach((x) => {
+      if (x.id === data.id) {
+        setAdded(true);
+        return;
+      }
+    });
+  }, [data]);
+
+  useEffect(() => checkLsit, [checkLsit]);
+
+  const addToFav = () => {
+    const fav = JSON.parse(localStorage.getItem("fav"));
+
+    if (fav) {
+      localStorage.setItem("fav", JSON.stringify([...fav, data]));
+    } else {
+      localStorage.setItem("fav", JSON.stringify([data]));
+    }
+
+    checkLsit();
+  };
 
   return (
     <div className={style.main}>
@@ -78,8 +106,14 @@ const Preview = (props) => {
               <p>Watch with Prime</p>
               <p>Start 30-day free trial</p>
             </div>
-            <i className="fa-solid fa-play"></i>
-            <i class="fa-solid fa-plus"></i>
+            <Link to="/play">
+              <i className="fa-solid fa-play"></i>
+            </Link>
+            {added ? (
+              <i class="fa-solid fa-check"></i>
+            ) : (
+              <i class="fa-solid fa-plus" onClick={addToFav}></i>
+            )}
           </div>
           <div className={style.terms}>
             <p>

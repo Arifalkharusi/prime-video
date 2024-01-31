@@ -18,6 +18,11 @@
   max-height: 500px;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .container .backdrop {
   width: 100%;
 }

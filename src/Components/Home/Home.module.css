@@ -5,4 +5,17 @@
 }
 .container .content {
   margin-bottom: 150px;
+  top: 7%;
+}
+
+@media (max-width: 768px) {
+  .container {
+    position: relative;
+    min-height: 1000px;
+  }
+  .container .content {
+    position: absolute;
+    transform: scale(0.5) translateX(-50%);
+    width: 200%;
+  }
 }
