@@ -10,22 +10,22 @@ const Play = () => {
   const content = useSelector((state) => state.movie.data);
   console.log(content.id);
 
-  const tvDetails = `https://api.themoviedb.org/3/tv/${content.id}`;
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYmMyNzYzYTBjMzJlMTM0OWQ3MDk0MDhiNjVmNTIyMiIsInN1YiI6IjYzZWYxM2E1ZWE4NGM3MDBiMjljZTQ2MCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.78LJki1B2eYDrYohH0sDsYblPpOuaG53O3eaOqO8i74",
-    },
-  };
-
   useEffect(() => {
+    const tvDetails = `https://api.themoviedb.org/3/tv/${content.id}`;
+    const options = {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYmMyNzYzYTBjMzJlMTM0OWQ3MDk0MDhiNjVmNTIyMiIsInN1YiI6IjYzZWYxM2E1ZWE4NGM3MDBiMjljZTQ2MCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.78LJki1B2eYDrYohH0sDsYblPpOuaG53O3eaOqO8i74",
+      },
+    };
+
     content.media_type === "tv" &&
       fetch(tvDetails, options)
         .then((res) => res.json())
         .then((data) => setSeason(data.seasons));
-  }, [tvDetails, options, content]);
+  }, [content]);
 
   useEffect(() => {
     if (season[0]?.name === "Specials") {
