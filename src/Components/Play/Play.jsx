@@ -25,7 +25,7 @@ const Play = () => {
       fetch(tvDetails, options)
         .then((res) => res.json())
         .then((data) => setSeason(data.seasons));
-  }, []);
+  }, [tvDetails, options]);
 
   useEffect(() => {
     if (season[0]?.name === "Specials") {
@@ -76,6 +76,7 @@ const Play = () => {
       </div>
       <div className={style.video}>
         <iframe
+          title="vid"
           src={
             content.media_type === "movie"
               ? `https://vidsrc.to/embed/movie/${content.id}`
