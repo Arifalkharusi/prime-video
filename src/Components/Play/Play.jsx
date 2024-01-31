@@ -25,7 +25,7 @@ const Play = () => {
       fetch(tvDetails, options)
         .then((res) => res.json())
         .then((data) => setSeason(data.seasons));
-  }, [tvDetails, options]);
+  }, [tvDetails, options, content]);
 
   useEffect(() => {
     if (season[0]?.name === "Specials") {
