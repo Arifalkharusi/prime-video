@@ -8,7 +8,7 @@ import Slider from "../Slider/Slider";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-const Preview = (props) => {
+const Preview = () => {
   const imgPath = "https://image.tmdb.org/t/p/original";
 
   const [added, setAdded] = useState(false);
@@ -18,12 +18,8 @@ const Preview = (props) => {
   const checkLsit = useCallback(() => {
     const fav = JSON.parse(localStorage.getItem("fav"));
 
-    fav.forEach((x) => {
-      if (x.id === data.id) {
-        setAdded(true);
-        return;
-      }
-    });
+    const index = fav.findIndex((x) => x.id === data.id);
+    index !== -1 ? setAdded(true) : setAdded(false);
   }, [data]);
 
   useEffect(checkLsit, [checkLsit]);
@@ -38,6 +34,20 @@ const Preview = (props) => {
     }
 
     checkLsit();
+  };
+
+  const deleteFav = () => {
+    const fav = JSON.parse(localStorage.getItem("fav"));
+
+    let arr = [...fav];
+    const index = fav.findIndex((x) => x.id === data.id);
+    if (index !== -1) {
+      arr.splice(index, 1);
+      localStorage.setItem("fav", JSON.stringify(arr));
+      checkLsit();
+    }
+    console.log(index);
+    console.log(fav);
   };
 
   return (
@@ -110,7 +120,7 @@ const Preview = (props) => {
               <i className="fa-solid fa-play"></i>
             </Link>
             {added ? (
-              <i class="fa-solid fa-check"></i>
+              <i class="fa-solid fa-check" onClick={deleteFav}></i>
             ) : (
               <i class="fa-solid fa-plus" onClick={addToFav}></i>
             )}

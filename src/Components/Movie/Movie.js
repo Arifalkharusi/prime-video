@@ -29,7 +29,7 @@ const Movie = ({ movie }) => {
               </div>
             </div>
             <div className={style.info}>
-              <div>{movie.title}</div>
+              <div>{movie.title ? movie.title : movie.name}</div>
               <p>{movie.overview}</p>
             </div>
             <div className={style.rating}>
