@@ -26,7 +26,7 @@ const Preview = (props) => {
     });
   }, [data]);
 
-  useEffect(() => checkLsit, [checkLsit]);
+  useEffect(checkLsit, [checkLsit]);
 
   const addToFav = () => {
     const fav = JSON.parse(localStorage.getItem("fav"));
