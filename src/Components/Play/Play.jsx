@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import style from "./Play.module.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { updateHandler } from "../../store/movies";
 
 const Play = () => {
   const [season, setSeason] = useState([]);
-  const [selectedSeason, setSelectedSeason] = useState(1);
-  const [episode, setEpisode] = useState(1);
 
+  const dispatch = useDispatch();
   const content = useSelector((state) => state.movie.data);
-  console.log(content.id);
+  const progress = useSelector((state) => state.movie.info);
+  console.log(progress);
 
   useEffect(() => {
     const tvDetails = `https://api.themoviedb.org/3/tv/${content.id}`;
@@ -25,7 +26,19 @@ const Play = () => {
       fetch(tvDetails, options)
         .then((res) => res.json())
         .then((data) => setSeason(data.seasons));
-  }, [content]);
+
+    const fav = JSON.parse(localStorage.getItem("fav"));
+    const index = fav.findIndex((x) => x.id === content.id);
+
+    if (fav[index]?.progress !== undefined) {
+      dispatch(
+        updateHandler({
+          season: fav[index].progress[0],
+          episode: fav[index].progress[1],
+        })
+      );
+    }
+  }, [content, dispatch]);
 
   useEffect(() => {
     if (season[0]?.name === "Specials") {
@@ -33,10 +46,6 @@ const Play = () => {
       setSeason(arr);
     }
   }, [season]);
-
-  useEffect(() => {
-    setEpisode(1);
-  }, [selectedSeason]);
 
   return (
     <div>
@@ -51,20 +60,35 @@ const Play = () => {
             <select
               name=""
               id=""
-              onChange={(e) => setSelectedSeason(e.target.value)}
+              value={progress.season}
+              onChange={(e) =>
+                dispatch(
+                  updateHandler({
+                    season: +e.target.value,
+                    episode: 1,
+                  })
+                )
+              }
             >
               {season.map((_, i) => (
                 <option value={i + 1}>{i + 1}</option>
               ))}
             </select>
             <div className={style.season}>
-              {[...Array(season[selectedSeason - 1]?.episode_count)].map(
+              {[...Array(season[progress.season - 1]?.episode_count)].map(
                 (_, i) => (
                   <div
-                    className={`${i + 1 === episode && style.selected_ep} ${
-                      style.current_ep
-                    }`}
-                    onClick={() => setEpisode(i + 1)}
+                    className={`${
+                      i + 1 === progress.episode && style.selected_ep
+                    } ${style.current_ep}`}
+                    onClick={() =>
+                      dispatch(
+                        updateHandler({
+                          ...progress,
+                          episode: i + 1,
+                        })
+                      )
+                    }
                   >
                     {i + 1}
                   </div>
@@ -80,7 +104,7 @@ const Play = () => {
           src={
             content.media_type === "movie"
               ? `https://vidsrc.to/embed/movie/${content.id}`
-              : `https://vidsrc.to/embed/tv/${content.id}/${selectedSeason}/${episode}`
+              : `https://vidsrc.to/embed/tv/${content.id}/${progress.season}/${progress.episode}`
           }
           allowFullScreen
         ></iframe>
