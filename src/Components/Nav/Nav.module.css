@@ -32,6 +32,53 @@
   cursor: pointer;
   transition: all 0.25s;
 }
+form {
+  position: relative;
+}
+form > div {
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  margin-top: 5px;
+  border-radius: 5px;
+  z-index: 100;
+  background: rgb(15, 23, 30);
+  padding: 10px;
+}
+.livesearch {
+  display: flex;
+  gap: 10px;
+  color: rgba(242, 244, 246, 0.7);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.livesearch:hover {
+  background: rgb(28, 42, 55);
+  border-radius: 5px;
+}
+.livesearch img {
+  width: 50px;
+}
+.show {
+  display: flex;
+}
+.livesearch > div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.livesearch > div .title {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.livesearch > div .info {
+  font-size: 10px;
+}
 input {
   outline: none;
   padding: 5px 10px;

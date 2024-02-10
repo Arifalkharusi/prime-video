@@ -9,6 +9,8 @@ const Movie = ({ movie }) => {
 
   const dispatch = useDispatch();
 
+  let date = movie.release_date || movie.first_air_date;
+
   return (
     <div className={style.wraper}>
       <div
@@ -34,7 +36,7 @@ const Movie = ({ movie }) => {
             </div>
             <div className={style.rating}>
               <Rating rate={movie.vote_average} />
-              <div>{movie.release_date?.split("-")[0]}</div>
+              <div>{date?.split("-")[0]}</div>
             </div>
           </div>
         </div>

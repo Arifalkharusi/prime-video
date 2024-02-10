@@ -61,7 +61,7 @@ const Preview = () => {
           />
           <div className={style.discription}>
             <div className={style.content}>
-              <h1>{data.title}</h1>
+              <h1>{data.title || data.name}</h1>
               <div className={style.info}>
                 <Rating rate={data.vote_average} />
                 <span>({data.vote_count})</span>

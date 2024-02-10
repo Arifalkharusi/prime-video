@@ -6,6 +6,7 @@ export const movieSlice = createSlice({
     data: {},
     search: "",
     fav: [],
+    searchResults: [],
     info: {
       season: 1,
       episode: 1,
@@ -39,11 +40,6 @@ export const movieSlice = createSlice({
   },
 });
 
-export const {
-  movieHandler,
-  searchHandler,
-  favHandler,
-
-  updateHandler,
-} = movieSlice.actions;
+export const { movieHandler, searchHandler, favHandler, updateHandler } =
+  movieSlice.actions;
 export default movieSlice.reducer;
